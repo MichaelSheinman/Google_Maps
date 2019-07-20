@@ -24,11 +24,17 @@ var map = L.map('map', {
 
 var layerGroup = L.layerGroup().addTo(map);
 
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-subdomains: ['a', 'b', 'c']
-}).addTo(map)
+var maps = ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"]
 
+function setMap(layoutMap) {            
+    L.tileLayer(layoutMap, {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    subdomains: ['a', 'b', 'c']
+    }).addTo(map)
+}
+
+setMap(maps[1])
 
 var locations = [
     {title: 'Park Ave Penthouse', location: [40.7713024, -73.9632393]},
