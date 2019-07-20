@@ -57,3 +57,9 @@ land.addEventListener('click', function() {
     map.remove();
     setMap(maps[0]);
 })
+
+let view = document.getElementById('view');
+view.addEventListener('click', function() {
+    map.remove();
+    setMap(maps[1]);
+})
