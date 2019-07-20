@@ -4,7 +4,7 @@ function showListings() {
         var title = locations[i].title;
         var marker = L.marker(position, {riseOnHover:true}).addTo(layerGroup);
         marker.on('mouseover', function() {
-            alert("Hey");
+            marker._icon.src = 'yellow_icon.png'
         })
         var popup = marker.bindPopup(position[0].toString() + '\n\n' + position[1].toString());
     }
