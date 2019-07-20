@@ -11,12 +11,20 @@ html, body {
 }
 
 #view {
-  margin-left: 50px;
+  position: absolute;
+  top: 80px;
+  right: 50px;
+  padding: 10px;
+  z-index: 400;
 }
 
 
 #land {
-  margin-left: 90px;
+  position: absolute;
+  top: 80px;
+  right: 100px;
+  padding: 10px;
+  z-index: 400;
 }
 
 .options-box {
