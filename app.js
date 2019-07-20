@@ -2,7 +2,7 @@ function showListings() {
     for (var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
         var title = locations[i].title;
-        var marker = L.marker(position).addTo(layerGroup);
+        var marker = L.marker(position, {riseOnHover:true}).addTo(layerGroup)
         var popup = marker.bindPopup(position[0].toString() + '\n\n' + position[1].toString());
     }
 }
