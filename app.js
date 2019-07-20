@@ -9,7 +9,9 @@ function showListings() {
         marker.on('mouseout', function(e) {
             e.target._icon.src = 'http://cdn.leafletjs.com/leaflet/v0.7.7/images/marker-icon.png'
         })
-        var popup = marker.bindPopup(position[0].toString() + '\n\n' + position[1].toString());
+        var popup = marker.bindPopup("<img src='building.jpeg'/>");
+        console.log(popup);
+        // popup
     }
 }
 // This function will loop through the listings and hide them all.
