@@ -34,6 +34,7 @@ var maps = ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 // Set up the project 
 function setMap(layoutMap) {   
     map = L.map('map', {
+        drawControl: true,
         center: [40.741, -73.998],
         zoom: 13})
     layerGroup = L.layerGroup().addTo(map);        
@@ -42,6 +43,15 @@ function setMap(layoutMap) {
     subdomains: ['a', 'b', 'c']
     })
     z.addTo(map)
+    var drawnItems = new L.FeatureGroup();
+     map.addLayer(drawnItems);
+     var drawControl = new L.Control.Draw({
+         edit: {
+             featureGroup: drawnItems
+         }
+     });
+     map.addControl(drawControl);
+
 }
 
 setMap(maps[1])
