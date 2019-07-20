@@ -2,7 +2,10 @@ function showListings() {
     for (var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
         var title = locations[i].title;
-        var marker = L.marker(position, {riseOnHover:true}).addTo(layerGroup)
+        var marker = L.marker(position, {riseOnHover:true}).addTo(layerGroup);
+        marker.on('mouseover', function() {
+            alert("Hey");
+        })
         var popup = marker.bindPopup(position[0].toString() + '\n\n' + position[1].toString());
     }
 }
@@ -23,7 +26,6 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 subdomains: ['a', 'b', 'c']
 }).addTo(map)
 
-var markers = [];
 
 var locations = [
     {title: 'Park Ave Penthouse', location: [40.7713024, -73.9632393]},
