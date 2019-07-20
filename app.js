@@ -17,21 +17,23 @@ function hideListings() {
     layerGroup.clearLayers();
 }  
 
-var map = L.map('map', {
-    center: [40.741, -73.998],
-    zoom: 13
-})
+var map;
 
-var layerGroup = L.layerGroup().addTo(map);
+var layerGroup;
 
 var maps = ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
             "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"]
 
-function setMap(layoutMap) {            
-    L.tileLayer(layoutMap, {
+function setMap(layoutMap) {   
+    map = L.map('map', {
+        center: [40.741, -73.998],
+        zoom: 13})
+    layerGroup = L.layerGroup().addTo(map);        
+    var z = L.tileLayer(layoutMap, {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     subdomains: ['a', 'b', 'c']
-    }).addTo(map)
+    })
+    z.addTo(map)
 }
 
 setMap(maps[1])
@@ -49,3 +51,9 @@ var locations = [
 document.getElementById('show-listings').addEventListener('click', showListings)    
 document.getElementById('hide-listings').addEventListener('click', hideListings)    
 
+
+let land = document.getElementById('land');
+land.addEventListener('click', function() {
+    map.remove();
+    setMap(maps[0]);
+})
