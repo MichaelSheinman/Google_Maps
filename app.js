@@ -1,33 +1,37 @@
+
+// This code shows all the default listings 
 function showListings() {
-    for (var i = 0; i < locations.length; i++) {
-        var position = locations[i].location;
-        var title = locations[i].title;
-        var marker = L.marker(position, {riseOnHover:true}).addTo(layerGroup);
-        marker.on('mouseover', function(e) {
-            e.target._icon.src = 'yellow_icon.png'
-        })
-        marker.on('mouseout', function(e) {
-            e.target._icon.src = 'http://cdn.leafletjs.com/leaflet/v0.7.7/images/marker-icon.png'
-        })
-        var popup = marker.bindPopup("<img src='building.jpeg'/>");
-        console.log(popup);
-        // popup
+    if (counter === 0) {
+        counter += 1;
+        for (var i = 0; i < locations.length; i++) {
+            var position = locations[i].location;
+            var title = locations[i].title;
+            var marker = L.marker(position, {riseOnHover:true}).addTo(layerGroup);
+            marker.on('mouseover', function(e) {
+                e.target._icon.src = 'yellow_icon.png'
+            })
+            marker.on('mouseout', function(e) {
+                e.target._icon.src = 'http://cdn.leafletjs.com/leaflet/v0.7.7/images/marker-icon.png'
+            })
+            var popup = marker.bindPopup("<img width=200px src='building.jpeg'/>");   // showing a random image 
+        }
     }
 }
 // This function will loop through the listings and hide them all.
 function hideListings() {
+    counter = 0;
     layerGroup.clearLayers();
 }  
 
 var map;
-
+var counter = 0;
 var layerGroup;
-
 var maps = ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
             "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"]
 // Third map is cool, not used yet though 
 
+// Set up the project 
 function setMap(layoutMap) {   
     map = L.map('map', {
         center: [40.741, -73.998],
