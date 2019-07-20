@@ -6,6 +6,9 @@ function showListings() {
         marker.on('mouseover', function(e) {
             e.target._icon.src = 'yellow_icon.png'
         })
+        marker.on('mouseout', function(e) {
+            e.target._icon.src = 'http://cdn.leafletjs.com/leaflet/v0.7.7/images/marker-icon.png'
+        })
         var popup = marker.bindPopup(position[0].toString() + '\n\n' + position[1].toString());
     }
 }
