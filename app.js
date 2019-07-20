@@ -22,7 +22,9 @@ var map;
 var layerGroup;
 
 var maps = ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-            "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"]
+            "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"]
+// Third map is cool, not used yet though 
 
 function setMap(layoutMap) {   
     map = L.map('map', {
