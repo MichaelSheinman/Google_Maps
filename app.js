@@ -90,7 +90,15 @@ view.addEventListener('click', function() {
     setMap(maps[1]);
 })
 
+var polygon = new L.featureGroup();
+
 
 map.on('draw:created', function (e) {
-    console.log("here");
+    var type = e.layerType,
+    layer = e.layer;
+    if (type === 'polygon') {
+        polygon.addLayer(layer);
+        var seeArea = L.GeometryUtil.geodesicArea(layer.getLatLngs());
+        console.log(seeArea);
+  }
 });
