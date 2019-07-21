@@ -101,7 +101,11 @@ map.on('draw:created', function (e) {
         var seeArea = L.GeometryUtil.geodesicArea(layer.getLatLngs());
         let newElement = document.createElement('div');
         newElement.id = 'area'; 
-        newElement.innerText = seeArea;
-        document.getElementById('map').appendChild(newElement);
+        newElement.innerText = "The area is " + seeArea;
+        document.getElementById('map').appendChild(newElement)
+        setTimeout(function() {
+            console.log("here")
+            document.getElementById('map').removeChild(newElement);
+        }, 5000);
   }
 });
