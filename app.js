@@ -42,6 +42,7 @@ function setMap(layoutMap) {
     subdomains: ['a', 'b', 'c']
     })
     z.addTo(map)
+    var searchControl = L.esri.Geocoding.geosearch().addTo(map);
     var drawnItems = new L.FeatureGroup();
      map.addLayer(drawnItems);
      var drawControl = new L.Control.Draw({
