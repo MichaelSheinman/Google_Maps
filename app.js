@@ -78,12 +78,14 @@ document.getElementById('hide-listings').addEventListener('click', hideListings)
 
 let land = document.getElementById('land');
 land.addEventListener('click', function() {
+    hideListings();
     map.remove();
     setMap(maps[0]);
 })
 
 let view = document.getElementById('view');
 view.addEventListener('click', function() {
+    hideListings();
     map.remove();
     setMap(maps[1]);
 })
