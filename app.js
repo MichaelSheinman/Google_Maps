@@ -99,6 +99,9 @@ map.on('draw:created', function (e) {
     if (type === 'polygon') {
         polygon.addLayer(layer);
         var seeArea = L.GeometryUtil.geodesicArea(layer.getLatLngs());
-        console.log(seeArea);
+        let newElement = document.createElement('div');
+        newElement.id = 'area'; 
+        newElement.innerText = seeArea;
+        document.getElementById('map').appendChild(newElement);
   }
 });
